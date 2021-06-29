@@ -64,7 +64,7 @@ point1 = Point(randint(0, 400), randint(0, 400))
 point2 = Point(randint(10, 400), randint(10, 400))
 my_turtle = turtle.Turtle()
 
-point3 = GuiPoint(float(input("Guess X:")),
+point3 = GuiPoint(float(input("Guess X: ")),
                   float(input("Guess Y:")))
 r1 = GuiRectangle(point1, point2)
 
