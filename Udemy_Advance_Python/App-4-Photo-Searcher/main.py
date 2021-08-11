@@ -19,18 +19,22 @@ class Download:
 
 
 class FirstScreen(Screen):
-    def search_image(self):
-        image_path = 'resources/image2.jpg'
+    def get_image_url(self):
         query = self.manager.current_screen.ids.txt.text
         image_url = Wiki().find_image_url(query)
-        image = Download().download_image(image_url)
-        print(image)
         print(image_url)
+        return image_url
 
+    def get_image(self):
+        image_path = 'resources/image2.jpg'
+        image = Download().download_image(self.get_image_url())
+        print(image)
         with open(image_path, 'wb') as file:
             file.write(image)
+        return image
 
-        self.manager.current_screen.ids.img.source = image_path
+    def set_image(self):
+        self.manager.current_screen.ids.img.source = self.get_image()
 
 
 class RootWidget(ScreenManager):
